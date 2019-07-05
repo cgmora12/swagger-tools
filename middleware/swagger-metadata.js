@@ -263,7 +263,7 @@ var processSwaggerDocuments = function (rlOrSO, apiDeclarations) {
     var expressPath = expressStylePath(adOrSO.basePath, spec.version === '1.2' ? apiOrPath.path: indexOrName);
     var keys = [];
     var handleSubPaths = !(rlOrSO.paths && rlOrSO.paths[apiPath]['x-swagger-router-handle-subpaths']);
-    var re = pathToRegexp(expressPath, keys, { end: handleSubPaths });
+    var re = pathToRegexp(expressPath, keys, { end: handleSubPaths, sensitive: true });
     var cacheKey = re.toString();
     var cacheEntry;
 
